@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ProjectApp\app\app.component.ts" />
+    <None Remove="ProjectApp\app\app.module.ts" />
+    <None Remove="ProjectApp\app\candidate-detail.component.ts" />
+    <None Remove="ProjectApp\app\candidate-list.component.ts" />
+    <None Remove="ProjectApp\app\candidate.ts" />
+    <None Remove="ProjectApp\app\data.service.ts" />
+    <None Remove="ProjectApp\main.ts" />
+    <None Remove="ProjectApp\polyfills.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+    <PackageReference Include="Tag" Version="1.1.0" />
+    <PackageReference Include="TagHelperSamples.Authorization" Version="2.0.37" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ProjectApp\app\app.component.ts" />
+    <TypeScriptCompile Include="ProjectApp\app\app.module.ts" />
+    <TypeScriptCompile Include="ProjectApp\app\candidate-detail.component.ts" />
+    <TypeScriptCompile Include="ProjectApp\app\candidate-list.component.ts" />
+    <TypeScriptCompile Include="ProjectApp\app\candidate.ts" />
+    <TypeScriptCompile Include="ProjectApp\app\data.service.ts" />
+    <TypeScriptCompile Include="ProjectApp\main.ts" />
+    <TypeScriptCompile Include="ProjectApp\polyfills.ts" />
+  </ItemGroup>
+
+</Project>

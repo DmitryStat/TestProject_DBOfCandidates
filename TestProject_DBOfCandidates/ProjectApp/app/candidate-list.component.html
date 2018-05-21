@@ -1,0 +1,85 @@
+﻿<h2>List of candidates</h2>
+
+<input type="button" value="Add" class="btn btn-default" (click)="add()" />
+<table *ngIf="tableMode; else create" class="table table-striped">
+    <tbody>
+        <tr *ngFor="let c of candidates">
+            <ng-template [ngIf]="candidate?.id != c.id" [ngIfElse]="edit">
+                <td>
+                    <a [routerLink]="['candidate', c.id]" class="nav-link">
+                        {{c?.fio}}
+                        {{c?.position}}
+                        {{c?.salary}}
+                    </a>
+                </td>
+
+                <td>
+                    <button class="btn btn-sm btn-primary" (click)="editCandidate(c)">Change</button>
+                    <button class="btn btn-sm btn-danger" (click)="delete(c)">Delete</button>
+                </td>
+            </ng-template>
+        </tr>
+    </tbody>
+</table>
+
+<!--шаблон для редактирования-->
+<ng-template #edit>
+    <td>
+        <label>FIO</label>
+        <input type="text" [(ngModel)]="candidate.fio" class="form-control" />
+    </td>
+    <td>
+        <label>Posirion</label>
+        <input type="text" [(ngModel)]="candidate.position" class="form-control" />
+    </td>
+    <td>
+        <label>Age</label>
+        <input type="text" [(ngModel)]="candidate.age" class="form-control" />
+    </td>
+    <td>
+        <label>Salary</label>
+        <input type="text" [(ngModel)]="candidate.salary" class="form-control" />
+    </td>
+    <td>
+        <label>Number of year of experience</label>
+        <input type="text" [(ngModel)]="candidate.numberOfYearsOfExperience" class="form-control" />
+    </td>
+    <td>
+        <input type="button" value="Save" (click)="save()" class="btn btn-sm btn-success" />
+        <input type="button" value="Cancel" (click)="cancel()" class="btn btn-sm btn-warning" />
+    </td>
+</ng-template>
+
+<!--шаблон для добавления-->
+<ng-template #create>
+    <div class="form-group">
+        <label>FIO</label>
+        <input type="text" [(ngModel)]="candidate.fio" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Position</label>
+        <input type="text" [(ngModel)]="candidate.position" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        <input type="text" [(ngModel)]="candidate.age" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Salary</label>
+        <input type="text" [(ngModel)]="candidate.salary" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Number of years of experience</label>
+        <input type="text" [(ngModel)]="candidate.numberOfYearsOfExperience" class="form-control" />
+    </div>
+    <div>
+        <label>Resume</label>
+        <input type="file" [(ngModel)]="candidate.resume" class="form-control" (change)="onChange($event)"/>
+        
+    </div>
+    <div>
+        <input type="button" value="Save" (click)="save()" class="btn btn-success" />
+        <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning" />
+    </div>
+   
+</ng-template>
